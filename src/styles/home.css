@@ -1,10 +1,11 @@
 /* ── 홈/메뉴 공통 스테이지 ───────────────────────── */
 .homeStage {
-  min-height: calc(100vh - 160px);
+  height: calc(100vh - 80px);  /* page-container padding-top 80px 제외 */
   display: grid;
   place-content: center;
   justify-items: center;
   gap: 18px;
+  overflow: hidden;
 }
 
 /* ── 로고 ─────────────────────────────────────────── */
@@ -43,4 +44,5 @@
 @media (max-width: 800px) {
   .menuLink { font-size: 20px; }
   .menuSlot { height: 40px; }
+  .homeStage { height: calc(100vh - 80px); }
 }

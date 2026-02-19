@@ -7,6 +7,16 @@ export default function Detail({ post, onBack, onHome }) {
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // fiction detail: body 배경 흰색으로
+  useEffect(() => {
+    if (post?.category === "fiction") {
+      document.body.classList.add("detail-fiction");
+    }
+    return () => {
+      document.body.classList.remove("detail-fiction");
+    };
+  }, [post]);
+
   useEffect(() => {
     let alive = true;
 

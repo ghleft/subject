@@ -70,3 +70,11 @@
   .artImage  { padding: 14px; }
   .videoWrap { padding: 0; }
 }
+
+@media (max-width: 600px) {
+  .bodyText {
+    width: 100vw;
+    margin-left: calc(-20px);  /* page-container padding 상쇄 */
+    margin-right: calc(-20px);
+  }
+}

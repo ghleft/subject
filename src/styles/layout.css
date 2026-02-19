@@ -42,7 +42,7 @@
 
 /* ── 반응형 ───────────────────────────────────────── */
 @media (max-width: 800px) {
-  .page-container { padding: 100px 20px; }
+  .page-container { padding: 40px 20px; }
 }
 
 /* ── 푸터 링크 ────────────────────────────────────── */
