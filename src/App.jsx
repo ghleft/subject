@@ -15,10 +15,10 @@ export const VIEWS = {
 
 // ── 히스토리 헬퍼 ─────────────────────────────────────────
 function pushView(stateObj) {
-  window.history.pushState(stateObj, "", "/");
+  window.history.pushState(stateObj, "", window.location.pathname);
 }
 function replaceView(stateObj) {
-  window.history.replaceState(stateObj, "", "/");
+  window.history.replaceState(stateObj, "", window.location.pathname);
 }
 
 // ─────────────────────────────────────────────────────────
