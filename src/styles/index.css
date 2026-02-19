@@ -8,14 +8,15 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html, body { overscroll-behavior: none; }
-html { overflow-y: scroll; scrollbar-color: #fff #0b5ed7; scrollbar-width: thin; }
+html { overflow-y: scroll; scrollbar-color: rgba(255,255,255,0.3) #0b5ed7; scrollbar-width: thin; }
 
-/* 네모 스크롤바 (Chrome/Safari) */
+/* 스크롤바 (Chrome/Safari) */
 ::-webkit-scrollbar { width: 4px; border-radius: 0; }
 ::-webkit-scrollbar-track { background: #0b5ed7; border-radius: 0; }
-::-webkit-scrollbar-thumb { background: #fff; border-radius: 0; border: 0; outline: none; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,.7); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 0; border: 0; outline: none; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
 ::-webkit-scrollbar-corner { background: #0b5ed7; }
+
 html, body, #root { height: 100%; }
 a, button { color: inherit; }
 
@@ -62,10 +63,3 @@ body {
   margin-bottom: 8px;
   color: var(--muted);
 }
-
-/* ── fiction/art detail 스크롤바 ────────────────────── */
-body.detail-fiction { scrollbar-color: #333 #fff; }
-body.detail-fiction::-webkit-scrollbar-track { background: #fff; }
-body.detail-fiction::-webkit-scrollbar-thumb { background: #333; }
-html:has(body.detail-fiction)::-webkit-scrollbar-track { background: #fff; }
-html:has(body.detail-fiction)::-webkit-scrollbar-thumb { background: #333; }
