@@ -1,0 +1,106 @@
+/* ── 공통 페이지 컨테이너 ─────────────────────────── */
+.page-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 50px;
+}
+
+/* ── 상단바 ───────────────────────────────────────── */
+.topBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 26px 0 22px;
+}
+
+.topBarOnlyTitle {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.brandText {
+  color: var(--fg);
+  font-weight: 400;
+  font-size: 44px;
+  letter-spacing: 0;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ── 푸터 ─────────────────────────────────────────── */
+.siteFooter {
+  margin-top: 24px;
+  padding: 18px 0 6px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--fg);
+  opacity: .75;
+}
+
+/* ── 반응형 ───────────────────────────────────────── */
+@media (max-width: 800px) {
+  .page-container { padding: 100px 20px; }
+}
+
+/* ── 푸터 링크 ────────────────────────────────────── */
+.footerLink {
+  color: var(--fg);
+  opacity: .75;
+  text-decoration: underline;
+}
+.footerLink:hover { opacity: 1; }
+
+/* ── 헤더 박스 (list/detail 공통) ────────────────── */
+.headerBox {
+  width: var(--content-width);
+  margin-top: 24px;
+  padding: 20px 18px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 15px;
+  opacity: .85;
+  text-align: center;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+/* list 모드: 카테고리 나열 */
+.headerBox--list {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.headerNavItem {
+  opacity: .6;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+
+.headerNavItem--active {
+  font-weight: 700;
+  opacity: 1;
+}
+
+/* ── 코너 마커 ────────────────────────────────────── */
+.headerBox {
+  position: relative;
+  box-shadow: 0 0 6px 1px rgba(57, 232, 65, 0.4), inset 0 0 6px 1px rgba(57, 232, 65, 0.4);
+  background: rgba(57, 232, 65, 0.04);
+}
+
+.cornerMark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--line);
+  box-shadow: 0 0 6px 1px var(--line);
+}
+
+.cornerMark--tl { top: -4px;    left: -4px; }
+.cornerMark--tr { top: -4px;    right: -4px; }
+.cornerMark--bl { bottom: -4px; left: -4px; }
+.cornerMark--br { bottom: -4px; right: -4px; }

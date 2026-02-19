@@ -1,0 +1,46 @@
+/* ── 홈/메뉴 공통 스테이지 ───────────────────────── */
+.homeStage {
+  min-height: calc(100vh - 160px);
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+}
+
+/* ── 로고 ─────────────────────────────────────────── */
+.mainLogo {
+  width: min(600px, 88vw);
+  cursor: pointer;
+}
+
+/* ── 메뉴 슬롯 ────────────────────────────────────── */
+.menuSlot {
+  height: 44px;
+  display: grid;
+  align-items: center;
+}
+
+.menuRow {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.menuLink {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 26px;
+  letter-spacing: 1px;
+  color: var(--fg);
+  opacity: .9;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.menuLink:hover { opacity: 1; }
+
+/* ── 반응형 ───────────────────────────────────────── */
+@media (max-width: 800px) {
+  .menuLink { font-size: 20px; }
+  .menuSlot { height: 40px; }
+}
