@@ -2,7 +2,7 @@ import art1 from "./images/art-001.png";
 import art2 from "./images/art-002.png";
 
 const POSTS = [
-  { id: "fic-1", category: "fiction", title: "레이디두아 ⑲", author: "사이",  tags: ["계깡"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-1.md` },
+  { id: "fic-1", category: "fiction", title: "레이디두아", author: "사이",  tags: ["계깡"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-1.md` },
   { id: "fic-2", category: "fiction", title: "이 사랑도 통역이 되나요",    author: "익명B",   tags: ["계묭"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-2.md` },
   { id: "fic-3", category: "fiction", title: "fic-3",    author: "새콤",    tags: ["계깡"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-3.md` },
   { id: "fic-4", category: "fiction", title: "fic-4",    author: "대해",    tags: ["계묭"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-4.md` },

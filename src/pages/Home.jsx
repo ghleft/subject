@@ -2,7 +2,7 @@ import logo from "../logo.svg";
 
 export default function Home({ onLogoClick }) {
   return (
-    <div className="page-container">
+    <div className="page-container page-container--home">
       <div className="homeStage">
         <img
           className="mainLogo"
@@ -10,7 +10,6 @@ export default function Home({ onLogoClick }) {
           alt="logo"
           onClick={onLogoClick}
         />
-        {/* 메뉴가 열릴 공간 확보 (CategoryMenu와 레이아웃 높이 통일) */}
         <div className="menuSlot" aria-hidden="true" />
       </div>
     </div>

@@ -8,7 +8,7 @@ const CATEGORIES = [
 
 export default function CategoryMenu({ onPickCategory }) {
   return (
-    <div className="page-container">
+    <div className="page-container page-container--home">
       <div className="homeStage">
         <img
           className="mainLogo"

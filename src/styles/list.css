@@ -10,22 +10,22 @@
 
 .list-item {
   position: relative;
-  padding: 36px 18px 20px;
+  padding: 28px 18px 14px;
   cursor: pointer;
   background: transparent;
   border: 1px solid var(--line);
   border-radius: 0;
-  transition: background 120ms ease, border-color 120ms ease;
+  transition: background 120ms ease;
 }
 
 .list-item:hover {
-  background: rgba(255, 255, 255, .07);
+  background: rgba(57, 232, 65, 0.06);
 }
 
 .list-item:focus,
 .list-item:focus-visible {
   outline: none;
-  background: rgba(255, 255, 255, .09);
+  background: rgba(57, 232, 65, 0.06);
 }
 
 /* ── 태그 (좌상단 직사각형) ───────────────────────── */
@@ -33,14 +33,13 @@
   position: absolute;
   top: -1px;
   left: -1px;
-  padding: 0px 6px;
-  font-size: 10px;
+  padding: 0px 10px;
   font-size: 11px;
+  line-height: 1;
   letter-spacing: .3px;
   border: 1px solid var(--tag-color);
   color: #000;
   background: var(--tag-color);
-  line-height: 1.4;
 }
 
 /* ── 제목 + 글쓴이 한 줄 ──────────────────────────── */
@@ -57,6 +56,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: -0.02em;
+  transform: scaleY(0.93);
+  display: inline-block;
 }
 
 .item-author {

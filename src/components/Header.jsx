@@ -18,6 +18,10 @@ function CornerMarks() {
 export default function Header({ onHome, onNavigate, mode, category, title }) {
   return (
     <div className="topBarOnlyTitle">
+      <div className="brandMeta">
+        <span className="brandYear">2026</span>
+        <span className="brandSub">gyehyeon left collaboration</span>
+      </div>
       <span className="brandText" onClick={onHome} role="button" tabIndex={0}>
         被寫體
       </span>
