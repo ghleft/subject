@@ -8,14 +8,14 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 html, body { overscroll-behavior: none; }
-html { overflow-y: scroll; scrollbar-color: rgba(255,255,255,0.3) #0b5ed7; scrollbar-width: thin; }
+html { overflow-y: scroll; scrollbar-color: rgba(200,200,200,0.4) #1735D4; scrollbar-width: thin; }
 
 /* 스크롤바 (Chrome/Safari) */
 ::-webkit-scrollbar { width: 4px; border-radius: 0; }
-::-webkit-scrollbar-track { background: #0b5ed7; border-radius: 0; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 0; border: 0; outline: none; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.5); }
-::-webkit-scrollbar-corner { background: #0b5ed7; }
+::-webkit-scrollbar-track { background: #1735D4; border-radius: 0; }
+::-webkit-scrollbar-thumb { background: rgba(200,200,200,0.4); border-radius: 0; border: 0; outline: none; }
+::-webkit-scrollbar-thumb:hover { background: rgba(200,200,200,0.6); }
+::-webkit-scrollbar-corner { background: #1735D4; }
 
 html, body, #root { height: 100%; }
 a, button { color: inherit; }
@@ -29,7 +29,7 @@ a, button { color: inherit; }
 
 /* ── CSS 변수 ─────────────────────────────────────── */
 :root {
-  --bg:      #0b5ed7;
+  --bg:      #1735D4;
   --fg:      #ffffff;
   --line:    #39E841;
   --tag-color: #39E841;
@@ -44,6 +44,11 @@ body {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
   background: var(--bg);
+  background-image: url('../assets/bg_02.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--fg);
 }
 

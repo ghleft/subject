@@ -10,6 +10,35 @@
 }
 
 /* ── 로고 ─────────────────────────────────────────── */
+.logoWrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.logoBg {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 430%;
+  height: 430%;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.logoFg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
 .mainLogo {
   width: min(600px, 88vw);
   cursor: pointer;
@@ -20,6 +49,7 @@
   height: 44px;
   display: grid;
   align-items: center;
+  margin-top: 32px;
 }
 
 .menuRow {
@@ -45,5 +75,20 @@
 @media (max-width: 800px) {
   .menuLink { font-size: 20px; }
   .menuSlot { height: 40px; }
-
 }
+
+/* ── ONE FRAME / INFINITE VIEWS ─────────────────── */
+.logoLabel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: -0.02em;  /* ← 글자 간격 */
+  color: #fff;
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.logoLabel--left  { right: calc(100% + 80px); }  /* ← 좌우 간격 */
+.logoLabel--right { left: calc(100% + 80px); }   /* ← 좌우 간격 */
