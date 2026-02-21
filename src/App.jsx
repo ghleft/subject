@@ -36,7 +36,7 @@ export default function App() {
   useEffect(() => {
     const s = window.history.state;
 
-    if (s?.view === VIEWS.LIST || s?.view === VIEWS.DETAIL) {
+    if (s?.view === VIEWS.MENU || s?.view === VIEWS.LIST || s?.view === VIEWS.DETAIL) {
       setView(s.view);
       setCategory(s.category ?? null);
       setSelectedId(s.selectedId ?? null);
@@ -64,7 +64,10 @@ export default function App() {
   }, []);
 
   // ── 네비게이션 핸들러 ─────────────────────────────────────
-  const openMenu = () => setView(VIEWS.MENU);
+  const openMenu = () => {
+    setView(VIEWS.MENU);
+    pushView({ view: VIEWS.MENU, category: null, selectedId: null });
+  };
   const closeMenu = () => setView(VIEWS.HOME);
 
   const openList = (cat) => {

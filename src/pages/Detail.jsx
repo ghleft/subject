@@ -6,8 +6,16 @@ import Footer from "../components/Footer";
 export default function Detail({ post, onBack, onHome }) {
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(false);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [contentVisible, setContentVisible] = useState(false);
 
 
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setHeaderVisible(true), 50);
+    const t2 = setTimeout(() => setContentVisible(true), 450);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -53,7 +61,10 @@ export default function Detail({ post, onBack, onHome }) {
 
   return (
     <div className="page-container">
-      <Header onHome={onHome} mode="detail" title={post.title} />
+      <div style={{ opacity: headerVisible ? 1 : 0, transition: "opacity 0.8s" }}>
+        <Header onHome={onHome} mode="detail" title={post.title} />
+      </div>
+      <div style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 1.0s" }}>
 
       {post.category === "fiction" && (
         <div className="bodyText">
@@ -78,7 +89,8 @@ export default function Detail({ post, onBack, onHome }) {
         </div>
       )}
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 }

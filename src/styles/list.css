@@ -22,14 +22,6 @@
   transition: background 120ms ease;
 }
 
-.list-item:hover {
-  background: rgba(251, 108, 64, 0.18);
-}
-
-.list-item:focus,
-.list-item:focus-visible {
-  background: rgba(251, 108, 64, 0.18);
-}
 
 /* ── 태그 (박스 안 윗변에 붙음) ─────────────────── */
 .item-tags {
@@ -88,7 +80,7 @@
 
 .item-author {
   font-size: 14px;
-  color: #FB6C40;
+  color: #ffffff;
   font-weight: 600;
   flex-shrink: 0;
 }
@@ -98,6 +90,4 @@
   .item-title { font-size: 20px; }
 }
 /* ── 번갈아 굵은 변 ──────────────────────────────── */
-.list-item:nth-child(odd)  { border-left: 5px solid #FB6C40; }
-.list-item:nth-child(even) { border-right: 5px solid #FB6C40; }
 .list-item:last-child { border-bottom: 1.5px solid #FB6C40; }

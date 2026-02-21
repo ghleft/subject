@@ -7,6 +7,7 @@
   justify-content: center;
   gap: 18px;
   overflow: hidden;
+  padding-top: 80px;
 }
 
 /* ── 로고 ─────────────────────────────────────────── */
@@ -14,7 +15,7 @@
   position: relative;
   width: 220px;
   height: 220px;
-  cursor: pointer;
+  cursor: default;
   overflow: visible;
 }
 
@@ -37,6 +38,7 @@
   height: 100%;
   object-fit: contain;
   z-index: 1;
+  cursor: pointer;
 }
 
 .mainLogo {
@@ -60,7 +62,7 @@
 
 .menuLink {
   border: 0;
-  background: transparent;
+  background: rgba(57, 232, 65, 0.08);
   cursor: pointer;
   font-size: 26px;
   letter-spacing: 1px;
@@ -82,7 +84,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
   letter-spacing: -0.02em;  /* ← 글자 간격 */
   color: #fff;
@@ -92,3 +94,132 @@
 
 .logoLabel--left  { right: calc(100% + 80px); }  /* ← 좌우 간격 */
 .logoLabel--right { left: calc(100% + 80px); }   /* ← 좌우 간격 */
+/* ── 메뉴 스테이지 ───────────────────────────────── */
+.menuStage {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.menuCenterLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+}
+
+.menuCenterLogo .logoBg {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 430%;
+  height: 430%;
+  object-fit: contain;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.menuCenterLogo .logoFg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* ── 카테고리 박스 ───────────────────────────────── */
+.menuBox {
+  position: relative;
+  padding: 0;
+  border: 1.5px solid var(--line);
+  background: rgba(57, 232, 65, 0.20);
+  box-shadow: 0 0 6px 1px rgba(57, 232, 65, 0.4), inset 0 0 6px 1px rgba(57, 232, 65, 0.4);
+  mix-blend-mode: screen;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  cursor: pointer;
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.menuBoxCorner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--line);
+  box-shadow: 0 0 6px 1px var(--line);
+}
+
+.menuBoxCorner--tl { top: -4px;    left: -4px; }
+.menuBoxCorner--tr { top: -4px;    right: -4px; }
+.menuBoxCorner--bl { bottom: -4px; left: -4px; }
+.menuBoxCorner--br { bottom: -4px; right: -4px; }
+/* ── 메뉴 그룹 (중앙 고정) ───────────────────────── */
+.menuGroup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 300px;
+}
+/* ── 모바일 메인 축소 ─────────────────────────────── */
+@media (max-width: 600px) {
+  .homeStage {
+    transform: scale(0.85);
+    transform-origin: center center;
+    overflow: visible;
+  }
+}
+@media (max-width: 600px) {
+  .logoLabel {
+    font-size: 6px;
+  }
+  .logoLabel--left  { right: calc(100% + 55px); }
+  .logoLabel--right { left: calc(100% + 50px); }
+}
+/* ── 로고 클릭 팝 애니메이션 ─────────────────────── */
+@keyframes logoPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.logoFg--pop {
+  animation: logoPop 0.35s ease-in-out forwards;
+}
+
+/* ── 스캔라인 진입 애니메이션 ────────────────────── */
+.scanLine {
+  position: absolute;
+  left: -10%;
+  width: 120%;
+  height: 3px;
+  background: rgba(57, 232, 65, 0.9);
+  box-shadow: 0 0 10px #39E841, 0 0 20px #39E841;
+  top: -10px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scanLine--go {
+  animation: scanDown 0.6s ease-in forwards;
+}
+
+@keyframes scanDown {
+  0%   { top: -10px; opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+/* ── 모바일 메뉴 축소 ─────────────────────────────── */
+@media (max-width: 600px) {
+  .menuGroup {
+    transform: translate(-50%, -50%) scale(0.75);
+  }
+}
