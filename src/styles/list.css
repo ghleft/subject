@@ -1,93 +1,112 @@
+/* ── 리스트 래퍼 ──────────────────────────────────── */
+.listWrap {
+  margin-top: 40px;
+}
+
 /* ── 리스트 ───────────────────────────────────────── */
 .list {
   width: var(--content-width);
   margin: 0 auto;
-  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  border-top: 3px solid #FB6C40;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 18px;
+  position: relative;
+  z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
+/* ── 아이템 ───────────────────────────────────────── */
 .list-item {
-  position: relative;
-  padding: 32px 18px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
   background: transparent;
-  border-top: 1.5px solid #FB6C40;
-  border-bottom: none;
   border-left: none;
   border-right: none;
   border-radius: 0;
-  overflow: visible;
-  transition: background 120ms ease;
 }
 
+.list-item:last-child {
+  border-bottom: none;
+}
 
-/* ── 태그 (박스 안 윗변에 붙음) ─────────────────── */
-.item-tags {
-  position: absolute;
-  top: -1.5px;
-  left: 12px;
+/* ── 왼쪽: 태그 + 제목 ────────────────────────────── */
+.item-left {
   display: flex;
-  gap: 8px;
-  z-index: 1;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .item-tag {
-  padding: 3px 18px 2px;
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  border-radius: 0 0 6px 6px;
-}
-
-.item-tag-text {
-  display: inline-block;
-  transform: scaleY(0.95);
-}
-
-/* 태그1: 주황 배경 흰 글씨 (ADULT) */
-.item-tag--adult {
-  background: #FB6C40;
-  color: #fff;
-}
-
-/* 태그2: 흰 배경 주황 글씨 */
-.item-tag--normal {
-  background: #fff;
-  color: #FB6C40;
-}
-
-/* ── 제목 + 글쓴이 한 줄 ──────────────────────────── */
-.item-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: baseline;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .item-title {
-  font-size: 24px;
-  color: var(--fg);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  letter-spacing: -0.02em;
-  transform: scaleY(0.93);
-  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
 
+/* ── 오른쪽: 작가 ─────────────────────────────────── */
 .item-author {
-  font-size: 14px;
-  color: #ffffff;
-  font-weight: 600;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
   flex-shrink: 0;
+  margin-left: 20px;
+  letter-spacing: 0.02em;
 }
 
 /* ── 반응형 ───────────────────────────────────────── */
 @media (max-width: 800px) {
-  .item-title { font-size: 20px; }
+  .item-title { font-size: 18px; }
 }
-/* ── 번갈아 굵은 변 ──────────────────────────────── */
-.list-item:last-child { border-bottom: 1.5px solid #FB6C40; }
+
+@media (max-width: 600px) {
+  .listWrap {
+    margin-top: 35px;
+  }
+  .list {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0 20px;
+  }
+}
+
+/* ── 클릭 불가 아이템 (video) ─────────────────────── */
+.list-item--no-click {
+  cursor: default;
+}
+
+/* ── 비디오 바로 붙이기 ───────────────────────────── */
+.videoWrap--attached {
+  margin-top: 0;
+}
+/* ── 비디오 (리스트 바로 아래 붙음) ──────────────── */
+.videoWrap--attached {
+  width: var(--content-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 0;
+}
+.videoWrap--attached iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+}
+
+/* ── 클릭 안되는 아이템 ───────────────────────────── */
+.list-item--no-click {
+  cursor: default;
+}

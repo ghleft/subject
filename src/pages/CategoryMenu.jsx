@@ -12,7 +12,7 @@ const CATEGORIES = [
 const CENTER_TOP  = (300 / 2) - (145 / 2); // 77.5px
 const CENTER_LEFT = (320 / 2) - (200 / 2); // 60px
 
-function CornerBox({ children, onSelect, style, entered }) {
+function CornerBox({ children, onSelect, style, entered, animating }) {
   const canvasRef = useRef(null);
   const frameRef  = useRef(null);
   const activeRef = useRef(false);
@@ -55,7 +55,7 @@ function CornerBox({ children, onSelect, style, entered }) {
       setTimeout(() => { activeRef.current = false; onSelect(); }, 400);
     }
   };
-  const handleMouseEnter = () => { if (isHoverDevice) activeRef.current = true; };
+  const handleMouseEnter = () => { if (isHoverDevice && !animating) activeRef.current = true; };
   const handleMouseLeave = () => { if (isHoverDevice) activeRef.current = false; };
 
   const w = parseInt(style.width) * 4;
@@ -102,10 +102,12 @@ function CornerBox({ children, onSelect, style, entered }) {
 
 export default function CategoryMenu({ onPickCategory }) {
   const [entered, setEntered] = useState(false);
+  const [animating, setAnimating] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setEntered(true), 50);
-    return () => clearTimeout(t);
+    const t1 = setTimeout(() => setEntered(true), 50);
+    const t2 = setTimeout(() => setAnimating(false), 700);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
@@ -117,6 +119,7 @@ export default function CategoryMenu({ onPickCategory }) {
             onSelect={() => onPickCategory(key)}
             style={style}
             entered={entered}
+            animating={animating}
           >
             {label}
           </CornerBox>

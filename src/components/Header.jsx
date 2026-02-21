@@ -1,54 +1,49 @@
-const CATEGORIES = [
-  { key: "fiction", label: "FICTION" },
-  { key: "art",     label: "ART" },
-  { key: "video",   label: "VIDEO" },
-];
+import bg03 from "../assets/bg_03.png";
+import bg04 from "../assets/bg_04.png";
 
-function CornerMarks() {
-  return (
-    <>
-      <span className="cornerMark cornerMark--tl" aria-hidden="true" />
-      <span className="cornerMark cornerMark--tr" aria-hidden="true" />
-      <span className="cornerMark cornerMark--bl" aria-hidden="true" />
-      <span className="cornerMark cornerMark--br" aria-hidden="true" />
-    </>
-  );
-}
+const CATEGORIES = [
+  { key: "fiction", label: "FIC" },
+  { key: "art",     label: "ART" },
+  { key: "video",   label: "VID" },
+];
 
 export default function Header({ onHome, onNavigate, mode, category, title }) {
   return (
     <div className="topBarOnlyTitle">
-      <div className="brandMeta">
-        <span className="brandYear">2026</span>
-        <span className="brandSub">gyehyeon left collaboration</span>
+      <div className="headerInner">
+        {/* 로고: pointer-events none으로 클릭 통과, 버튼만 클릭 가능 */}
+        <div className="headerLogoWrap" style={{ pointerEvents: "none" }}>
+          <img className="headerLogoBg" src={bg03} alt="" aria-hidden="true" />
+          <img className="headerLogoFg" src={bg04} alt="logo" />
+          <button
+            className="headerLogoBtn"
+            onClick={onHome}
+            aria-label="홈으로"
+            style={{ pointerEvents: "all" }}
+          />
+        </div>
+
+        {mode === "detail" && title && (
+          <div className="headerTitle">{title}</div>
+        )}
+
+        {mode === "list" && (
+          <div className="headerNav">
+            {CATEGORIES.map(({ key, label }, i) => (
+              <>
+                {i > 0 && <span key={key + "dot"} className="headerNavDot">·</span>}
+                <button
+                  key={key}
+                  className={"headerNavBtn" + (category === key ? " headerNavBtn--active" : "")}
+                  onClick={() => onNavigate(key)}
+                >
+                  {label}
+                </button>
+              </>
+            ))}
+          </div>
+        )}
       </div>
-      <span className="brandText" onClick={onHome} role="button" tabIndex={0}>
-        被寫體
-      </span>
-
-      {mode === "list" && (
-        <div className="headerBox headerBox--list">
-          <CornerMarks />
-          {CATEGORIES.map(({ key, label }) => (
-            <span
-              key={key}
-              className={`headerNavItem${category === key ? " headerNavItem--active" : ""}`}
-              onClick={() => onNavigate(key)}
-              role="button"
-              tabIndex={0}
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      )}
-
-      {mode === "detail" && title && (
-        <div className="headerBox">
-          <CornerMarks />
-          {title}
-        </div>
-      )}
     </div>
   );
 }

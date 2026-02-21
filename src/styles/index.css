@@ -36,7 +36,7 @@ a, button { color: inherit; }
   --muted:   rgba(255, 255, 255, .65);
   --card-bg: rgba(255, 255, 255, .96);
   --card-fg: rgba(0, 0, 0, .88);
-  --content-width: min(680px, 100%);
+  --content-width: min(760px, 100%);
 }
 
 /* ── Base ─────────────────────────────────────────── */

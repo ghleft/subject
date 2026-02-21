@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="siteFooter">
-      © 2026 &lt;被寫體&gt; All rights reserved,{" "}
+      © 2026 &lt;被寫體&gt; All rights reserved{" "}
       <br />
       Designed by bold (
       <a

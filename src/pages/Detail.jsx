@@ -9,8 +9,6 @@ export default function Detail({ post, onBack, onHome }) {
   const [headerVisible, setHeaderVisible] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
 
-
-
   useEffect(() => {
     const t1 = setTimeout(() => setHeaderVisible(true), 50);
     const t2 = setTimeout(() => setContentVisible(true), 450);
@@ -19,11 +17,9 @@ export default function Detail({ post, onBack, onHome }) {
 
   useEffect(() => {
     let alive = true;
-
     async function load() {
       setMarkdown("");
       if (!post) return;
-
       if (post.category === "fiction" && post.bodyUrl) {
         setLoading(true);
         try {
@@ -37,7 +33,6 @@ export default function Detail({ post, onBack, onHome }) {
         }
       }
     }
-
     load();
     return () => { alive = false; };
   }, [post]);
@@ -62,33 +57,30 @@ export default function Detail({ post, onBack, onHome }) {
   return (
     <div className="page-container">
       <div style={{ opacity: headerVisible ? 1 : 0, transition: "opacity 0.8s" }}>
-        <Header onHome={onHome} mode="detail" title={post.title} />
+        <Header onHome={onHome} mode="detail" title={post.category !== "video" ? post.title : undefined} />
       </div>
       <div style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 1.0s" }}>
-
-      {post.category === "fiction" && (
-        <div className="bodyText">
-          {loading && <div className="muted">loading...</div>}
-          <ReactMarkdown>{markdown}</ReactMarkdown>
-        </div>
-      )}
-
-      {post.category === "art" && (
-        <img className="artImage" src={post.imageUrl} alt={post.title} />
-      )}
-
-      {post.category === "video" && (
-        <div className="videoWrap">
-          <iframe
-            title={post.title}
-            src={`https://www.youtube.com/embed/${post.youtubeId}`}
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-          />
-        </div>
-      )}
-
+        <div className="detailTop" />
+        {post.category === "fiction" && (
+          <div className="bodyText">
+            {loading && <div className="muted">loading...</div>}
+            <ReactMarkdown>{markdown}</ReactMarkdown>
+          </div>
+        )}
+        {post.category === "art" && (
+          <img className="artImage" src={post.imageUrl} alt={post.title} />
+        )}
+        {post.category === "video" && (
+          <div className="videoWrap">
+            <iframe
+              title={post.title}
+              src={`https://www.youtube.com/embed/${post.youtubeId}`}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+            />
+          </div>
+        )}
         <Footer />
       </div>
     </div>

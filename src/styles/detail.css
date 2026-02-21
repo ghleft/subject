@@ -1,11 +1,20 @@
+/* ── 상단 주황선 ──────────────────────────────────── */
+.detailTop {
+  width: var(--content-width);
+  margin: 40px auto 0;
+  border-top: 3px solid #FB6C40;
+}
+
 /* ── 공통: 카드 너비/여백/배경 ───────────────────── */
 .bodyText,
 .artImage,
 .videoWrap {
+  position: relative;
+  z-index: 1;
   width: var(--content-width);
   margin-left: auto;
   margin-right: auto;
-  margin-top: 14px;
+  margin-top: 0;
   background: var(--card-bg);
   color: var(--card-fg);
   border-radius: 0;
@@ -46,6 +55,8 @@
   overflow: hidden;
   position: relative;
   height: auto;
+  width: var(--content-width);
+  margin: 0 auto;
 }
 
 .videoWrap iframe {
@@ -74,4 +85,16 @@
     margin-right: -20px;
   }
   .bodyText { padding: 90px 24px; }
+}
+@media (max-width: 600px) {
+  .detailTop {
+    margin-top: 35px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+
+.videoWrap--attached {
+  margin-top: 0 !important;
 }

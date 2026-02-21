@@ -3,6 +3,7 @@
   max-width: 820px;
   margin: 0 auto;
   padding: 80px 50px;
+  position: relative;
 }
 
 /* ── 상단바 ───────────────────────────────────────── */
@@ -16,12 +17,12 @@
 .topBarOnlyTitle {
   position: relative;
   overflow: visible;
-  flex-direction: column;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 0;
-  padding-top: 20px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .brandMeta {
@@ -57,7 +58,7 @@
   text-align: center;
   font-size: 11px;
   color: var(--fg);
-  opacity: .75;
+  line-height: 1.4;
 }
 
 /* ── 반응형 ───────────────────────────────────────── */
@@ -134,4 +135,125 @@
 .topBarOnlyTitle > * {
   position: relative;
   z-index: 1;
+}
+/* ── 헤더 로고 ────────────────────────────────────── */
+.headerLogoWrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-left: 70px;
+  margin-top: -20px;
+  z-index: 0;
+  pointer-events: all;
+}
+
+.headerLogoBg {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 430%;
+  height: 430%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.headerLogoFg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .headerLogoWrap {
+    width: 145px;
+    height: 145px;
+    margin-left: 0;
+    margin-top: -10px;
+  }
+}
+/* ── 헤더 인너 (로고 + 제목/네비 가로 배치) ─────── */
+.headerInner {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.headerTitle {
+  position: absolute;
+  left: 550px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.headerNav {
+  position: absolute;
+  left: 550px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.headerNavBtn {
+  pointer-events: all;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-family: inherit;
+  color: var(--fg);
+  opacity: 0.5;
+  cursor: pointer;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.headerNavBtn--active {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .headerTitle {
+    font-size: 15px;
+    left: 270px;
+  }
+  .headerNav {
+    left: 270px;
+    gap: 6px;
+  }
+  .headerNavBtn {
+    font-size: 15px;
+  }
+}
+.headerNavDot {
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+.headerLogoBtn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: all;
 }
