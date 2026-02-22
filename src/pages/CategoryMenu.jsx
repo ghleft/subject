@@ -1,16 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
 const CATEGORIES = [
-  { key: "fiction", label: "FICTION", style: { top: "-30px",  left: "-50px",  width: "200px", height: "145px" } },
-  { key: "art",     label: "ART",     style: { top: "90px",   left: "60px",   width: "200px", height: "145px" } },
-  { key: "video",   label: "VIDEO",   style: { top: "210px",  left: "170px",  width: "200px", height: "145px" } },
+  { key: "fiction", label: "FICTION", style: { top: "-222px", left: "-165px", width: "200px", height: "145px" } },
+  { key: "art",     label: "ART",     style: { top: "-122px", left: "-35px",  width: "200px", height: "145px" } },
+  { key: "video",   label: "VIDEO",   style: { top: "-22px",  left: "-165px", width: "200px", height: "145px" } },
+  { key: "review",  label: "REVIEW",  style: { top: "78px",   left: "-35px",  width: "200px", height: "145px" } },
 ];
 
 // menuGroup 중앙 기준 각 박스의 목표 위치 중심점 계산
 // menuGroup: 320x300, 각 박스: 200x120
 // 중앙으로 모일 때의 위치: menuGroup 중앙 - 박스 크기의 절반
-const CENTER_TOP  = (300 / 2) - (145 / 2); // 77.5px
-const CENTER_LEFT = (320 / 2) - (200 / 2); // 60px
+const CENTER_TOP  = -(145 / 2); // 박스 중앙이 menuGroup 중앙(top=0)에 오도록
+const CENTER_LEFT = -(200 / 2); // 박스 중앙이 menuGroup 중앙(left=0)에 오도록
 
 function CornerBox({ children, onSelect, style, entered, animating }) {
   const canvasRef = useRef(null);

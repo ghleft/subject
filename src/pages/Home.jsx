@@ -8,9 +8,9 @@ export default function Home({ onLogoClick }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setScanning(true), 50);   // 스캔 시작
-    const t2 = setTimeout(() => setVisible(true), 400);   // 로고 등장 (스캔 중)
-    const t3 = setTimeout(() => setScanning(false), 700); // 스캔 완전히 끝난 후 제거
+    const t1 = setTimeout(() => setScanning(true), 50);
+    const t2 = setTimeout(() => setVisible(true), 400);
+    const t3 = setTimeout(() => setScanning(false), 700);
     return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
   }, []);
 
@@ -24,9 +24,10 @@ export default function Home({ onLogoClick }) {
     }, { once: true });
   };
 
-  const labelStyle = {
+  const slideStyle = {
     opacity: visible ? 1 : 0,
-    transition: "opacity 0.5s 0.55s",
+    transform: visible ? undefined : "translateY(18px)",
+    transition: "opacity 0.5s 0.55s, transform 0.6s cubic-bezier(0.2, 0, 0, 1) 0.55s",
   };
 
   return (
@@ -50,8 +51,30 @@ export default function Home({ onLogoClick }) {
               transition: "opacity 0.5s, transform 0.6s cubic-bezier(0.2, 0, 0, 1)",
             }}
           />
-          <span className="logoLabel logoLabel--left" style={labelStyle}>ONE FRAME</span>
-          <span className="logoLabel logoLabel--right" style={labelStyle}>INFINITE VIEWS</span>
+          <span className="logoLabel logoLabel--left" style={slideStyle}>ONE FRAME</span>
+          <span className="logoLabel logoLabel--right" style={slideStyle}>INFINITE VIEWS</span>
+
+          <div className="homeInfoBox homeInfoBox--above" style={{...slideStyle, bottom: "calc(100% + -10px)", left: "-20%", transform: visible ? "translateX(-50%)" : "translateX(-50%) translateY(18px)"}}>
+            <span className="menuBoxCorner menuBoxCorner--tl" />
+            <span className="menuBoxCorner menuBoxCorner--tr" />
+            <span className="menuBoxCorner menuBoxCorner--bl" />
+            <span className="menuBoxCorner menuBoxCorner--br" />
+            2026
+          </div>
+          <div className="homeInfoBox homeInfoBox--below-left" style={{...slideStyle, top: "calc(100% + 20px)", left: "150%", transform: visible ? "translateX(-120%)" : "translateX(-120%) translateY(18px)"}}>
+            <span className="menuBoxCorner menuBoxCorner--tl" />
+            <span className="menuBoxCorner menuBoxCorner--tr" />
+            <span className="menuBoxCorner menuBoxCorner--bl" />
+            <span className="menuBoxCorner menuBoxCorner--br" />
+            gyehyeon left
+          </div>
+          <div className="homeInfoBox homeInfoBox--below-right" style={{...slideStyle, top: "calc(100% + 90px)", left: "30%", transform: visible ? "translateX(20%)" : "translateX(20%) translateY(18px)"}}>
+            <span className="menuBoxCorner menuBoxCorner--tl" />
+            <span className="menuBoxCorner menuBoxCorner--tr" />
+            <span className="menuBoxCorner menuBoxCorner--bl" />
+            <span className="menuBoxCorner menuBoxCorner--br" />
+            collaboration
+          </div>
         </div>
         <div
           className="menuSlot"

@@ -34,7 +34,7 @@ a, button { color: inherit; }
   --line:    #39E841;
   --tag-color: #39E841;
   --muted:   rgba(255, 255, 255, .65);
-  --card-bg: rgba(255, 255, 255, .96);
+  --card-bg: #ffffff;
   --card-fg: rgba(0, 0, 0, .88);
   --content-width: min(760px, 100%);
 }

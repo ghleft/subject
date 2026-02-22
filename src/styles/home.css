@@ -86,14 +86,15 @@
   transform: translateY(-50%);
   font-size: 8px;
   font-weight: 600;
-  letter-spacing: -0.02em;  /* ← 글자 간격 */
+  letter-spacing: -0.02em;
   color: #fff;
   opacity: 1;
   white-space: nowrap;
 }
 
-.logoLabel--left  { right: calc(100% + 80px); }  /* ← 좌우 간격 */
-.logoLabel--right { left: calc(100% + 80px); }   /* ← 좌우 간격 */
+.logoLabel--left  { right: calc(100% + 80px); }
+.logoLabel--right { left: calc(100% + 80px); }
+
 /* ── 메뉴 스테이지 ───────────────────────────────── */
 .menuStage {
   position: relative;
@@ -161,15 +162,17 @@
 .menuBoxCorner--tr { top: -4px;    right: -4px; }
 .menuBoxCorner--bl { bottom: -4px; left: -4px; }
 .menuBoxCorner--br { bottom: -4px; right: -4px; }
+
 /* ── 메뉴 그룹 (중앙 고정) ───────────────────────── */
 .menuGroup {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 300px;
+  width: 0;
+  height: 0;
 }
+
 /* ── 모바일 메인 축소 ─────────────────────────────── */
 @media (max-width: 600px) {
   .homeStage {
@@ -177,14 +180,13 @@
     transform-origin: center center;
     overflow: visible;
   }
-}
-@media (max-width: 600px) {
   .logoLabel {
     font-size: 6px;
   }
   .logoLabel--left  { right: calc(100% + 55px); }
   .logoLabel--right { left: calc(100% + 50px); }
 }
+
 /* ── 로고 클릭 팝 애니메이션 ─────────────────────── */
 @keyframes logoPop {
   0%   { transform: scale(1); }
@@ -217,9 +219,47 @@
   0%   { top: -10px; opacity: 1; }
   100% { top: 110%; opacity: 0; }
 }
+
 /* ── 모바일 메뉴 축소 ─────────────────────────────── */
 @media (max-width: 600px) {
   .menuGroup {
     transform: translate(-50%, -50%) scale(0.75);
   }
+}
+
+/* ── 홈 정보 박스 ─────────────────────────────────── */
+.homeInfoBox {
+  position: absolute;
+  border: 1.5px solid var(--line);
+  background: rgba(57, 232, 65, 0.20);
+  box-shadow: 0 0 6px 1px rgba(57, 232, 65, 0.4), inset 0 0 6px 1px rgba(57, 232, 65, 0.4);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeInfoBox--above {
+  bottom: calc(100% + -10px);
+  left: -20%;
+  transform: translateX(-50%);
+  padding: 60px 30px;
+}
+
+.homeInfoBox--below-left {
+  top: calc(100% + 20px);
+  left: 150%;
+  transform: translateX(-120%);
+  padding: 35px 30px;
+}
+
+.homeInfoBox--below-right {
+  top: calc(100% + 90px);
+  left: 30%;
+  transform: translateX(20%);
+  padding: 30px 40px;
 }

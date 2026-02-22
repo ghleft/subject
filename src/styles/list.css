@@ -1,6 +1,10 @@
 /* ── 리스트 래퍼 ──────────────────────────────────── */
 .listWrap {
-  margin-top: 40px;
+  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
+  position: relative;
+  z-index: 10;
+  width: var(--content-width);
+  margin: 0 auto;
 }
 
 /* ── 리스트 ───────────────────────────────────────── */
@@ -9,11 +13,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  border-top: 3px solid #FB6C40;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 0 18px;
-  position: relative;
-  z-index: 0;
+  padding: 10px 0px;
   position: relative;
   z-index: 0;
 }
@@ -23,17 +23,13 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  border: 1.5px solid #1735D4;
   cursor: pointer;
-  background: transparent;
-  border-left: none;
-  border-right: none;
-  border-radius: 0;
-}
-
-.list-item:last-child {
-  border-bottom: none;
+  background: #ffffff72;
+  border-radius: 0px 20px;
+  padding: 25px 12px 22px;
+  margin: 6px 16px;
 }
 
 /* ── 왼쪽: 태그 + 제목 ────────────────────────────── */
@@ -45,22 +41,39 @@
 
 .item-tag {
   font-size: 10px;
-  color: rgba(255, 255, 255, 0.35);
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  color: #fff;
+  background: #1735D4;
+  padding: 0px 6px;
+  line-height: 1.3;
+}
+
+.item-tags {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.item-tag + .item-tag {
+  border-left: 1px solid #ffffff;
 }
 
 .item-title {
   font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: #1735D4;
 }
 
 /* ── 오른쪽: 작가 ─────────────────────────────────── */
 .item-author {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.35);
+  color: #1735D4;
   flex-shrink: 0;
   margin-left: 20px;
   letter-spacing: 0.02em;
@@ -72,14 +85,30 @@
 }
 
 @media (max-width: 600px) {
-  .listWrap {
-    margin-top: 35px;
+  .categoryBar {
+    width: calc(100% + 40px);
+    margin-left: -20px;
   }
-  .list {
+  .listWrap {
+    margin-top: 20px;
     width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
-    padding: 0 20px;
+  }
+  .list {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 9px 12px;
+  }
+  .list-item {
+    padding: 32px 16px 22px;
+    margin: 6px 0;
+  }
+  .videoWrap--attached {
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
   }
 }
 
@@ -88,10 +117,6 @@
   cursor: default;
 }
 
-/* ── 비디오 바로 붙이기 ───────────────────────────── */
-.videoWrap--attached {
-  margin-top: 0;
-}
 /* ── 비디오 (리스트 바로 아래 붙음) ──────────────── */
 .videoWrap--attached {
   width: var(--content-width);
@@ -106,7 +131,217 @@
   border: none;
 }
 
-/* ── 클릭 안되는 아이템 ───────────────────────────── */
-.list-item--no-click {
-  cursor: default;
+/* ── 카테고리 바 ──────────────────────────────────── */
+.categoryBar {
+  width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  border: 1.5px solid #1735D4;
+  background: transparent;
+}
+
+.categoryBarBtn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1735D4;
+  background: transparent;
+  border: none;
+  border-right: 1.5px solid #1735D4;
+  cursor: pointer;
+  pointer-events: all;
+  position: relative;
+}
+
+.categoryBarBtn:last-child {
+  border-right: none;
+}
+
+.categoryBarBtn--active {
+  background: #1735D4 !important;
+  color: #39E841 !important;
+}
+
+/* ── 큰 카테고리 글씨 (리스트/디테일 공통) ──────── */
+.bigCategoryWrap {
+  width: var(--content-width);
+  margin: 0 auto;
+  position: relative;
+  height: 0;
+}
+
+.bigCategoryLabel {
+  position: absolute;
+  bottom: 125px;
+  left: 77%;
+  transform: translateX(-50%) scaleX(0.75);
+  transform-origin: center;
+  font-size: 56px;
+  font-weight: 550;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  color: var(--fg);
+  white-space: nowrap;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+@media (max-width: 600px) {
+  .bigCategoryLabel {
+    font-size: 34px !important;
+    bottom: 85px !important;
+    left: 75%;
+  }
+}
+
+/* ── 미니 카테고리 바 ─────────────────────────────── */
+.miniCategoryBar {
+  display: flex;
+  justify-content: flex-end;
+  width: var(--content-width);
+  margin: 0 auto;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  border: none;
+}
+
+.miniCategoryBtn {
+  padding: 5px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  border: none;
+  border: none;
+  background: #39E841;
+  color: #1735D4;
+  cursor: pointer;
+}
+
+
+
+.miniCategoryBtn--active:not(.miniCategoryBtn--review) {
+  background: #1735D4 !important;
+  color: #39E841 !important;
+}
+
+.miniCategoryBtn--review {
+  background: #FB6C40;
+  color: #1735D4;
+}
+
+.miniCategoryBtn--active.miniCategoryBtn--review {
+  background: #1735D4 !important;
+  color: #FB6C40 !important;
+}
+
+/* ── 미니바 + 리스트 묶음 ─────────────────────────── */
+.listWithNav {
+  margin-top: -20px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .listWithNav {
+    margin-top: -15px;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    margin-right: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .miniCategoryBar {
+    width: auto;
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .listWrap {
+    margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    align-self: stretch;
+  }
+  .miniCategoryBtn {
+    padding: 3px 16px;
+    font-size: 10.5px;
+  }
+}
+
+@media (min-width: 601px) {
+  .listWithNav {
+    margin-top: -5px;
+    margin-left: -150px;
+    margin-right: -150px;
+  }
+}
+
+/* ── 리뷰 리스트 ──────────────────────────────────── */
+.reviewList {
+  width: var(--content-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.reviewCard {
+  background-color: #ffffff4b;
+  border: 1.5px solid #1735D4;
+  border-radius: 0px 20px;
+  padding: 20px 24px;
+  margin: 0 16px;
+}
+
+.reviewCard__header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.reviewCard__title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #1735D4;
+}
+
+.reviewCard__body {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #1735D4;
+}
+
+.reviewCard__body p {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .reviewList {
+    width: 100%;
+    padding: 15px 12px;
+  }
+  .reviewCard {
+    background-color: #ffffff4b;
+    margin: 0;
+    padding: 16px;
+  }
+}
+
+/* ── 리뷰 페이지 배경 ─────────────────────────────── */
+.listWrap--review {
+  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
+}
+
+.bigCategoryLabel--review {
+  color: #39E841;
 }

@@ -7,13 +7,6 @@
 }
 
 /* ── 상단바 ───────────────────────────────────────── */
-.topBar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 26px 0 22px;
-}
-
 .topBarOnlyTitle {
   position: relative;
   overflow: visible;
@@ -25,45 +18,19 @@
   pointer-events: none;
 }
 
-.brandMeta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-.brandYear,
-.brandSub {
-  font-size: 11px;
-  color: #fff;
-  opacity: 1;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-
-.brandText {
-  color: var(--fg);
-  font-weight: 400;
-  font-size: 44px;
-  letter-spacing: 0;
-  line-height: 1;
-  cursor: pointer;
+.topBarOnlyTitle > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ── 푸터 ─────────────────────────────────────────── */
 .siteFooter {
   margin-top: 24px;
-  padding: 18px 0 6px;
+  padding: 40px 0 24px;
   text-align: center;
   font-size: 11px;
   color: var(--fg);
   line-height: 1.4;
-}
-
-/* ── 반응형 ───────────────────────────────────────── */
-@media (max-width: 800px) {
-  .page-container { padding: 40px 20px; }
 }
 
 /* ── 푸터 링크 ────────────────────────────────────── */
@@ -74,68 +41,19 @@
 }
 .footerLink:hover { opacity: 1; }
 
-/* ── 헤더 박스 (list/detail 공통) ────────────────── */
-.headerBox {
-  letter-spacing: -0.02em;
-  font-weight: 600;
-  width: var(--content-width);
-  margin-top: 24px;
-  padding: 20px 18px;
-  border: 1.5px solid var(--line);
-  border-radius: 0;
-  font-size: 13px;
-  text-align: center;
-  position: relative;
-  background: rgba(57, 232, 65, 0.20);
-  box-shadow: 0 0 6px 1px rgba(57, 232, 65, 0.4), inset 0 0 6px 1px rgba(57, 232, 65, 0.4);
-  transition: background 120ms ease;
+/* ── 반응형 ───────────────────────────────────────── */
+@media (max-width: 800px) {
+  .page-container { padding: 40px 20px; }
 }
 
-/* list 모드: 카테고리 나열 */
-.headerBox--list {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-
-.headerNavItem {
-  opacity: .6;
-  letter-spacing: .3px;
-  cursor: pointer;
-}
-
-.headerNavItem--active {
-  opacity: 1;
-  letter-spacing: -0.02em;
-  font-weight: 600;
-}
-
-/* ── 코너 마커 ────────────────────────────────────── */
-
-.cornerMark {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--line);
-  box-shadow: 0 0 6px 1px var(--line);
-}
-
-.cornerMark--tl { top: -4px;    left: -4px; }
-.cornerMark--tr { top: -4px;    right: -4px; }
-.cornerMark--bl { bottom: -4px; left: -4px; }
-.cornerMark--br { bottom: -4px; right: -4px; }
-
-/* ── 홈 전용 컨테이너 (padding 없음) ─────────────── */
+/* ── 홈 전용 컨테이너 ─────────────────────────────── */
 .page-container--home {
   padding: 0;
   overflow: hidden;
   max-width: 100%;
   height: 100%;
 }
-.topBarOnlyTitle > * {
-  position: relative;
-  z-index: 1;
-}
+
 /* ── 헤더 로고 ────────────────────────────────────── */
 .headerLogoWrap {
   position: relative;
@@ -170,6 +88,18 @@
   z-index: 1;
 }
 
+.headerLogoBtn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: all;
+}
+
 @media (max-width: 600px) {
   .headerLogoWrap {
     width: 145px;
@@ -178,13 +108,15 @@
     margin-top: -10px;
   }
 }
-/* ── 헤더 인너 (로고 + 제목/네비 가로 배치) ─────── */
+
+/* ── 헤더 인너 ────────────────────────────────────── */
 .headerInner {
   position: relative;
   z-index: 10;
   pointer-events: none;
 }
 
+/* ── 디테일 헤더 타이틀 ───────────────────────────── */
 .headerTitle {
   position: absolute;
   left: 550px;
@@ -198,62 +130,27 @@
   white-space: nowrap;
 }
 
-.headerNav {
-  position: absolute;
-  left: 550px;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.headerNavBtn {
-  pointer-events: all;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0;
-  font-family: inherit;
-  color: var(--fg);
-  opacity: 0.5;
-  cursor: pointer;
-  white-space: nowrap;
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.headerNavBtn--active {
-  opacity: 1;
-}
-
 @media (max-width: 600px) {
   .headerTitle {
     font-size: 15px;
     left: 270px;
   }
-  .headerNav {
-    left: 270px;
-    gap: 6px;
-  }
-  .headerNavBtn {
-    font-size: 15px;
-  }
 }
-.headerNavDot {
-  color: #fff;
-  font-weight: 400;
-  letter-spacing: 0;
-  pointer-events: none;
-}
-.headerLogoBtn {
+/* ── 리뷰 헤더 라벨 ──────────────────────────────── */
+.headerReviewLabel {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #39E841;
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 2;
-  pointer-events: all;
+  bottom: 18px;
+  left: 250px;
+}
+
+@media (max-width: 600px) {
+  .headerReviewLabel {
+    font-size: 11px;
+    left: 160px;
+    bottom: 12px;
+  }
 }

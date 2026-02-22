@@ -1,13 +1,21 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import Header from "../components/Header";
+import BigCategoryLabel from "../components/BigCategoryLabel";
 import Footer from "../components/Footer";
 
-export default function Detail({ post, onBack, onHome }) {
+export default function Detail({ post, onBack, onHome, onNavigate }) {
   const [markdown, setMarkdown] = useState("");
   const [loading, setLoading] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(false);
   const [contentVisible, setContentVisible] = useState(false);
+
+  const scrollToTop = () => {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     const t1 = setTimeout(() => setHeaderVisible(true), 50);
@@ -57,14 +65,19 @@ export default function Detail({ post, onBack, onHome }) {
   return (
     <div className="page-container">
       <div style={{ opacity: headerVisible ? 1 : 0, transition: "opacity 0.8s" }}>
-        <Header onHome={onHome} mode="detail" title={post.category !== "video" ? post.title : undefined} />
+        <Header onHome={onHome} mode="detail" />
       </div>
       <div style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 1.0s" }}>
-        <div className="detailTop" />
+        <div className="detail-wrap">
+          <div className="listWrap">
+            <BigCategoryLabel category={post.category} onClick={onNavigate} />
+            <div className="detailTitleBar">{post.title}</div>
+          </div>
+        </div>
         {post.category === "fiction" && (
           <div className="bodyText">
             {loading && <div className="muted">loading...</div>}
-            <ReactMarkdown>{markdown}</ReactMarkdown>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
           </div>
         )}
         {post.category === "art" && (
@@ -81,6 +94,10 @@ export default function Detail({ post, onBack, onHome }) {
             />
           </div>
         )}
+        <div className="floatButtons">
+          <button className="floatBtn floatBtn--back" onClick={() => { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; window.scrollTo(0, 0); onBack(); }}>&#8963;</button>
+          <button className="floatBtn" onClick={scrollToTop}>&#8963;</button>
+        </div>
         <Footer />
       </div>
     </div>

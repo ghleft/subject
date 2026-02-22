@@ -55,6 +55,15 @@ export default function App() {
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
+  // Safari 툴바 색상 + 배경 명도 제어
+  useEffect(() => {
+    if ([VIEWS.HOME, VIEWS.MENU].includes(view)) {
+      document.body.style.backgroundColor = "#1735D4";
+    } else {
+      document.body.style.backgroundColor = "";
+    }
+  }, [view]);
+
   const openMenu = () => {
     setView(VIEWS.MENU);
     pushView({ view: VIEWS.MENU, category: null, selectedId: null });
@@ -88,11 +97,9 @@ export default function App() {
 
   const goBack = () => window.history.back();
 
-  useEffect(() => {
-    const isNoScroll = view === VIEWS.HOME || view === VIEWS.MENU;
-    document.body.classList.toggle("no-scroll", isNoScroll);
-    return () => document.body.classList.remove("no-scroll");
-  }, [view]);
+
+
+
 
   if (view === VIEWS.HOME) return <Home onLogoClick={openMenu} />;
   if (view === VIEWS.MENU) return <CategoryMenu onPickCategory={openList} onClose={closeMenu} />;
@@ -107,5 +114,5 @@ export default function App() {
       />
     );
   }
-  return <Detail post={post} onBack={goBack} onHome={goHome} />;
+  return <Detail post={post} onBack={goBack} onHome={goHome} onNavigate={openList} />;
 }
