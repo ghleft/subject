@@ -1,7 +1,7 @@
 import bg03 from "../assets/bg_03.png";
 import bg04 from "../assets/bg_04.png";
 
-export default function Header({ onHome, mode, title }) {
+export default function Header({ onHome, mode, title, category }) {
   return (
     <div className="topBarOnlyTitle">
       <div className="headerInner">
@@ -19,6 +19,7 @@ export default function Header({ onHome, mode, title }) {
         {mode === "detail" && title && (
           <div className="headerTitle">{title}</div>
         )}
+
       </div>
     </div>
   );
