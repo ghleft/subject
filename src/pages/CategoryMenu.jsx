@@ -10,7 +10,7 @@ const CATEGORIES = [
 const CENTER_TOP  = -(145 / 2);
 const CENTER_LEFT = -(200 / 2);
 
-const PIXEL_SIZE = 3; // 모자이크 블록 크기
+const PIXEL_SIZE = 1.5; // 모자이크 블록 크기
 
 function CornerBox({ children, onSelect, style, entered, animating }) {
   const canvasRef = useRef(null);
