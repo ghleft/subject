@@ -13,15 +13,15 @@ const MiniNav = ({ category, onNavigate }) => (
       const reviewMode = category === "review";
       let style = {};
       if (isActive && isReview) {
-        style = { background: "#1735D4", color: "#FB6C40" };
-      } else if (isActive) {
         style = { background: "#1735D4", color: "#39E841" };
+      } else if (isActive) {
+        style = { background: "#1735D4", color: "#FB6C40" };
       } else if (isReview) {
-        style = { background: "#FB6C40", color: "#1735D4" };
-      } else if (reviewMode) {
-        style = { background: "#FB6C40", color: "#1735D4" };
-      } else {
         style = { background: "#39E841", color: "#1735D4" };
+      } else if (reviewMode) {
+        style = { background: "#39E841", color: "#1735D4" };
+      } else {
+        style = { background: "#FB6C40", color: "#1735D4" };
       }
       return (
         <button key={cat} className="miniCategoryBtn" style={style} onClick={() => onNavigate(cat)}>

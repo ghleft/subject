@@ -1,6 +1,6 @@
 /* ── 리스트 래퍼 ──────────────────────────────────── */
 .listWrap {
-  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
   position: relative;
   z-index: 10;
   width: var(--content-width);
@@ -26,7 +26,7 @@
   position: relative;
   border: 1.5px solid #1735D4;
   cursor: pointer;
-  background: #ffffff72;
+  background: #ffffff4b;
   border-radius: 0px 20px;
   padding: 25px 12px 22px;
   margin: 6px 16px;
@@ -60,7 +60,7 @@
 }
 
 .item-tag + .item-tag {
-  border-left: 1px solid #ffffff;
+  border-left: 1px solid #FED3C5;
 }
 
 .item-title {
@@ -174,7 +174,7 @@
 
 .bigCategoryLabel {
   position: absolute;
-  bottom: 125px;
+  bottom: 110px;
   left: 77%;
   transform: translateX(-50%) scaleX(0.75);
   transform-origin: center;
@@ -182,7 +182,7 @@
   font-weight: 550;
   letter-spacing: -0.08em;
   line-height: 1;
-  color: var(--fg);
+  color: #ffffff;
   white-space: nowrap;
   background: none;
   border: none;
@@ -193,8 +193,8 @@
 @media (max-width: 600px) {
   .bigCategoryLabel {
     font-size: 34px !important;
-    bottom: 85px !important;
-    left: 75%;
+    bottom: 80px !important;
+    left: 80%;
   }
 }
 
@@ -216,27 +216,24 @@
   font-weight: 700;
   letter-spacing: -0.08em;
   border: none;
-  border: none;
-  background: #39E841;
+  background: #FB6C40;
   color: #1735D4;
   cursor: pointer;
 }
 
-
-
 .miniCategoryBtn--active:not(.miniCategoryBtn--review) {
   background: #1735D4 !important;
-  color: #39E841 !important;
+  color: #FB6C40 !important;
 }
 
 .miniCategoryBtn--review {
-  background: #FB6C40;
+  background: #39E841;
   color: #1735D4;
 }
 
 .miniCategoryBtn--active.miniCategoryBtn--review {
   background: #1735D4 !important;
-  color: #FB6C40 !important;
+  color: #39E841 !important;
 }
 
 /* ── 미니바 + 리스트 묶음 ─────────────────────────── */
@@ -331,7 +328,7 @@
     padding: 15px 12px;
   }
   .reviewCard {
-    background-color: #ffffff4b;
+    background-color: #ffffff72;
     margin: 0;
     padding: 16px;
   }
@@ -339,9 +336,9 @@
 
 /* ── 리뷰 페이지 배경 ─────────────────────────────── */
 .listWrap--review {
-  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
 }
 
 .bigCategoryLabel--review {
-  color: #39E841;
+  color: #FB6C40;
 }
