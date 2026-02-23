@@ -353,7 +353,7 @@
   transform: translate(-40%, -50%);
 }
 
-/* ── review 화살표 주황색 ─────────────────────────── */
+/* ── review 화살표 연두색 ─────────────────────────── */
 .listFloatBtn--prev.review::before {
   border-color: transparent #39E841 transparent transparent;
 }
@@ -363,6 +363,9 @@
 }
 
 @media (min-width: 601px) {
+  .listWrapOuter {
+    margin-top: 15px;
+  }
   .listFloatButtons {
     right: 20px;
     gap: 0px;
@@ -384,4 +387,5 @@
     right: 0;
     top: -44px;
   }
+
 }

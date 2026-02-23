@@ -63,7 +63,7 @@ export default function Detail({ post, onBack, onHome, onNavigate }) {
   }
 
   return (
-    <div className="page-container">
+    <div className="page-container detail-page">
       <div style={{ opacity: headerVisible ? 1 : 0, transition: "opacity 0.8s" }}>
         <Header onHome={onHome} mode="detail" />
       </div>
@@ -87,7 +87,6 @@ export default function Detail({ post, onBack, onHome, onNavigate }) {
           <div className="videoWrap">
             <iframe
               title={post.title}
-              src={`https://www.youtube.com/embed/${post.youtubeId}`}
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen

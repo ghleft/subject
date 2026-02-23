@@ -38,7 +38,7 @@
 /* ── art 이미지 ───────────────────────────────────── */
 .artImage {
   display: block;
-  padding: 64px 48px;
+  padding: 48px;
   object-fit: contain;
 }
 
@@ -77,7 +77,6 @@
     margin-left: -20px;
     margin-right: -20px;
   }
-  .artImage { padding: 48px 0px; }
   .bodyText { padding: 90px 24px; }
 }
 @media (max-width: 600px) {
@@ -175,5 +174,15 @@
     color: #cdcdcd;
     border: 1px solid #cdcdcd;
     padding-top: 4px;
+  }
+}
+@media (min-width: 601px) {
+  .detail-page .detail-wrap {
+    margin-top: 44px;
+  }
+  .detail-page .bodyText,
+  .detail-page .artImage,
+  .detail-page .videoWrap {
+    margin-top: 0;
   }
 }
