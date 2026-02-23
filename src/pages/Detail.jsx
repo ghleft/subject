@@ -69,7 +69,7 @@ export default function Detail({ post, onBack, onHome, onNavigate }) {
       </div>
       <div style={{ opacity: contentVisible ? 1 : 0, transition: "opacity 1.0s" }}>
         <div className="detail-wrap">
-          <div className="listWrap">
+          <div className="listWrap" style={{ borderTop: "none", borderBottom: "none" }}>
             <BigCategoryLabel category={post.category} onClick={onNavigate} />
             <div className="detailTitleBar">{post.title}</div>
           </div>

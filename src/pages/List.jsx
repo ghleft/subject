@@ -5,33 +5,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getPostsByCategory } from "../content/posts";
 
-const MiniNav = ({ category, onNavigate }) => (
-  <div className="miniCategoryBar">
-    {["fiction", "art", "video", "review"].map((cat) => {
-      const isActive = category === cat;
-      const isReview = cat === "review";
-      const reviewMode = category === "review";
-      let style = {};
-      if (isActive && isReview) {
-        style = { background: "#1735D4", color: "#39E841" };
-      } else if (isActive) {
-        style = { background: "#1735D4", color: "#FB6C40" };
-      } else if (isReview) {
-        style = { background: "#39E841", color: "#1735D4" };
-      } else if (reviewMode) {
-        style = { background: "#39E841", color: "#1735D4" };
-      } else {
-        style = { background: "#FB6C40", color: "#1735D4" };
-      }
-      return (
-        <button key={cat} className="miniCategoryBtn" style={style} onClick={() => onNavigate(cat)}>
-          {cat === "fiction" ? "FIC" : cat === "art" ? "ART" : cat === "video" ? "VID" : "REV"}
-        </button>
-      );
-    })}
-  </div>
-);
-
 function ReviewCard({ post }) {
   const [markdown, setMarkdown] = useState("");
   useEffect(() => {
@@ -65,6 +38,8 @@ const ReviewList = ({ posts }) => (
   </div>
 );
 
+const CATS = ["fiction", "art", "video", "review"];
+
 export default function List({ category, onHome, onNavigate, onBackMenu, onOpenDetail }) {
   const posts = useMemo(() => getPostsByCategory(category), [category]);
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -90,6 +65,9 @@ export default function List({ category, onHome, onNavigate, onBackMenu, onOpenD
   const isVideo = category === "video";
   const videoPost = isVideo && posts.length > 0 ? posts[0] : null;
   const videoTags = videoPost ? (Array.isArray(videoPost.tag) ? videoPost.tag : videoPost.tag ? [videoPost.tag] : []) : [];
+  const catIdx = CATS.indexOf(category);
+  const prevCat = CATS[(catIdx - 1 + CATS.length) % CATS.length];
+  const nextCat = CATS[(catIdx + 1) % CATS.length];
 
   return (
     <div className="page-container page-container--with-logo list-page">
@@ -97,18 +75,23 @@ export default function List({ category, onHome, onNavigate, onBackMenu, onOpenD
         <Header onHome={onHome} mode="list" category={category} />
       </div>
       <div style={{ opacity: listVisible ? 1 : 0, transition: "opacity 1.0s" }}>
-        {/* bigCategoryLabel: detail-wrap과 완전히 동일한 구조 */}
+        {/* bigCategoryLabel */}
         <div className="detail-wrap">
-          <div className="listWrap" style={{ background: "transparent" }}>
+          <div className="listWrap" style={{ background: "transparent", borderTop: "none", borderBottom: "none" }}>
             <BigCategoryLabel category={category} />
             <div className="detailTitleBar" style={{ opacity: 0, pointerEvents: "none" }}>placeholder</div>
           </div>
         </div>
 
-        {/* 미니바 + 리스트 */}
-        <div className="listWithNav">
-          <MiniNav category={category} onNavigate={onNavigate} />
-          <div className={isReview ? "listWrap listWrap--review" : "listWrap"}>
+        {/* 리스트 + 화살표 */}
+        <div className="listWrapOuter">
+          <div className="listFloatButtons">
+            <button className={`listFloatBtn listFloatBtn--prev${isReview ? " review" : ""}`} onClick={() => onNavigate(prevCat)}></button>
+            <button className={`listFloatBtn listFloatBtn--next${isReview ? " review" : ""}`} onClick={() => onNavigate(nextCat)}></button>
+          </div>
+          <div className={isReview ? "listWrap listWrap--review" : "listWrap"} style={{ borderColor: isReview ? "#39E841" : "#FB6C40" }}>
+            <span className="listWrapCorner listWrapCorner--tl" style={{ background: isReview ? "#39E841" : "#FB6C40" }} />
+            <span className="listWrapCorner listWrapCorner--tr" style={{ background: isReview ? "#39E841" : "#FB6C40" }} />
             {isVideo && videoPost ? (
               <>
                 <div className="list">

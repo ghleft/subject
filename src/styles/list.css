@@ -1,10 +1,12 @@
 /* ── 리스트 래퍼 ──────────────────────────────────── */
 .listWrap {
-  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
   position: relative;
   z-index: 10;
   width: var(--content-width);
   margin: 0 auto;
+  border-top: 1.5px solid #FB6C40;
+  border-bottom: 1.5px solid #FB6C40;
 }
 
 /* ── 리스트 ───────────────────────────────────────── */
@@ -26,7 +28,7 @@
   position: relative;
   border: 1.5px solid #1735D4;
   cursor: pointer;
-  background: #ffffff4b;
+  background: #ffffff60;
   border-radius: 0px 20px;
   padding: 25px 12px 22px;
   margin: 6px 16px;
@@ -60,7 +62,7 @@
 }
 
 .item-tag + .item-tag {
-  border-left: 1px solid #FED3C5;
+  border-left: 1px solid #ffffff;
 }
 
 .item-title {
@@ -90,7 +92,7 @@
     margin-left: -20px;
   }
   .listWrap {
-    margin-top: 20px;
+    margin-top: 0;
     width: calc(100% + 40px);
     margin-left: -20px;
     margin-right: -20px;
@@ -194,20 +196,8 @@
   .bigCategoryLabel {
     font-size: 34px !important;
     bottom: 80px !important;
-    left: 80%;
+    left: 75%;
   }
-}
-
-/* ── 미니 카테고리 바 ─────────────────────────────── */
-.miniCategoryBar {
-  display: flex;
-  justify-content: flex-end;
-  width: var(--content-width);
-  margin: 0 auto;
-  gap: 0;
-  position: relative;
-  z-index: 1;
-  border: none;
 }
 
 .miniCategoryBtn {
@@ -227,57 +217,13 @@
 }
 
 .miniCategoryBtn--review {
-  background: #39E841;
-  color: #1735D4;
+  background: #FB6C40;
+  color: #39E841;
 }
 
 .miniCategoryBtn--active.miniCategoryBtn--review {
   background: #1735D4 !important;
   color: #39E841 !important;
-}
-
-/* ── 미니바 + 리스트 묶음 ─────────────────────────── */
-.listWithNav {
-  margin-top: -20px;
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 600px) {
-  .listWithNav {
-    margin-top: -15px;
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .miniCategoryBar {
-    width: auto;
-    display: inline-flex;
-    margin-left: auto;
-    margin-right: 0;
-  }
-  .listWrap {
-    margin-top: 0;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    align-self: stretch;
-  }
-  .miniCategoryBtn {
-    padding: 3px 16px;
-    font-size: 10.5px;
-  }
-}
-
-@media (min-width: 601px) {
-  .listWithNav {
-    margin-top: -5px;
-    margin-left: -150px;
-    margin-right: -150px;
-  }
 }
 
 /* ── 리뷰 리스트 ──────────────────────────────────── */
@@ -328,7 +274,6 @@
     padding: 15px 12px;
   }
   .reviewCard {
-    background-color: #ffffff72;
     margin: 0;
     padding: 16px;
   }
@@ -336,9 +281,107 @@
 
 /* ── 리뷰 페이지 배경 ─────────────────────────────── */
 .listWrap--review {
-  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
 }
 
 .bigCategoryLabel--review {
-  color: #FB6C40;
+  color: #39E841;
+}
+
+/* ── 리스트 상단 코너 사각형 ──────────────────────── */
+.listWrapCorner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #FB6C40;
+  z-index: 11;
+}
+
+.listWrapCorner--tl { top: -4px; left: -4px; }
+.listWrapCorner--tr { top: -4px; right: -4px; }
+
+@media (max-width: 600px) {
+  .listWrapCorner--tl { top: -4px; left: 0; }
+  .listWrapCorner--tr { top: -4px; right: 0; }
+}
+
+/* ── 리스트 플로팅 화살표 ─────────────────────────── */
+.listWrapOuter {
+  position: relative;
+}
+
+.listFloatButtons {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.listFloatBtn {
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.listFloatBtn--prev::before,
+.listFloatBtn--next::before {
+  content: "";
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  border-style: solid;
+  border-radius: 0;
+}
+
+.listFloatBtn--prev::before {
+  border-width: 7px 16px 7px 0;
+  border-color: transparent #FB6C40 transparent transparent;
+  transform: translate(-50%, -50%);
+}
+
+.listFloatBtn--next::before {
+  border-width: 7px 0 7px 16px;
+  border-color: transparent transparent transparent #FB6C40;
+  transform: translate(-40%, -50%);
+}
+
+/* ── review 화살표 주황색 ─────────────────────────── */
+.listFloatBtn--prev.review::before {
+  border-color: transparent #39E841 transparent transparent;
+}
+
+.listFloatBtn--next.review::before {
+  border-color: transparent transparent transparent #39E841;
+}
+
+@media (min-width: 601px) {
+  .listFloatButtons {
+    right: 20px;
+    gap: 0px;
+  }
+  .listFloatBtn {
+    width: 42px;
+    height: 15px;
+  }
+  .listFloatBtn--prev::before {
+    border-width: 10px 22px 10px 0;
+  }
+  .listFloatBtn--next::before {
+    border-width: 10px 0 10px 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .listFloatButtons {
+    right: 0;
+    top: -44px;
+  }
 }
