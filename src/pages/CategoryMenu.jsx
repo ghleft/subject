@@ -7,11 +7,10 @@ const CATEGORIES = [
   { key: "review",  label: "REVIEW",  style: { top: "78px",   left: "-35px",  width: "200px", height: "145px" } },
 ];
 
-// menuGroup 중앙 기준 각 박스의 목표 위치 중심점 계산
-// menuGroup: 320x300, 각 박스: 200x120
-// 중앙으로 모일 때의 위치: menuGroup 중앙 - 박스 크기의 절반
-const CENTER_TOP  = -(145 / 2); // 박스 중앙이 menuGroup 중앙(top=0)에 오도록
-const CENTER_LEFT = -(200 / 2); // 박스 중앙이 menuGroup 중앙(left=0)에 오도록
+const CENTER_TOP  = -(145 / 2);
+const CENTER_LEFT = -(200 / 2);
+
+const PIXEL_SIZE = 3; // 모자이크 블록 크기
 
 function CornerBox({ children, onSelect, style, entered, animating }) {
   const canvasRef = useRef(null);
@@ -27,11 +26,11 @@ function CornerBox({ children, onSelect, style, entered, animating }) {
       if (activeRef.current) {
         const ctx = canvas.getContext('2d');
         ctx.clearRect(0, 0, w, h);
-        for (let y = 0; y < h; y++) {
-          for (let x = 0; x < w; x++) {
+        for (let y = 0; y < h; y += PIXEL_SIZE) {
+          for (let x = 0; x < w; x += PIXEL_SIZE) {
             if (Math.random() > 0.5) {
               ctx.fillStyle = `rgba(57, 232, 65, ${0.25 + Math.random() * 0.25})`;
-              ctx.fillRect(x, y, 1, 1);
+              ctx.fillRect(x, y, PIXEL_SIZE, PIXEL_SIZE);
             }
           }
         }
@@ -47,11 +46,9 @@ function CornerBox({ children, onSelect, style, entered, animating }) {
   const isHoverDevice = window.matchMedia('(hover: hover)').matches;
   const handleClick = () => {
     if (isHoverDevice) {
-      // PC: 바로 이동
       activeRef.current = false;
       onSelect();
     } else {
-      // 모바일: 지글지글 후 이동
       activeRef.current = true;
       setTimeout(() => { activeRef.current = false; onSelect(); }, 400);
     }
