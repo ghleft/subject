@@ -8,14 +8,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 html, body { overscroll-behavior: none; }
-html { overflow-y: scroll; scrollbar-color: rgba(200,200,200,0.4) #1735D4; scrollbar-width: thin; }
-
-/* 스크롤바 (Chrome/Safari) */
-#root::-webkit-scrollbar { width: 4px; border-radius: 0; }
-#root::-webkit-scrollbar-track { background: #1735D4; border-radius: 0; }
-#root::-webkit-scrollbar-thumb { background: rgba(200,200,200,0.4); border-radius: 0; border: 0; outline: none; }
-#root::-webkit-scrollbar-thumb:hover { background: rgba(200,200,200,0.6); }
-#root::-webkit-scrollbar-corner { background: #1735D4; }
+html { overflow-y: scroll; }
 
 html, body, #root { height: 100%; }
 
