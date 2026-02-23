@@ -1,5 +1,5 @@
-import art1 from "./images/art-001.png";
-import art2 from "./images/art-002.png";
+import art1 from "./images/art-01.webp";
+import art2 from "./images/art-002.webp";
 
 const POSTS = [
   { id: "fic-1", category: "fiction", title: "우리가 헤어진 진짜 이유", author: "사이", tag: ["계깡"], bodyUrl: `${process.env.PUBLIC_URL}/content/fic/fic-1.md` },

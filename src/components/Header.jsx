@@ -1,5 +1,5 @@
-import bg03 from "../assets/bg_03.png";
-import bg04 from "../assets/bg_04.png";
+import bg03 from "../assets/bg_03.webp";
+import bg04 from "../assets/bg_04.webp";
 
 export default function Header({ onHome, mode, title, category }) {
   return (

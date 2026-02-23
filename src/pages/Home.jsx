@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
-import bg03 from "../assets/bg_03.png";
-import bg04 from "../assets/bg_04.png";
+import bg03 from "../assets/bg_03.webp";
+import bg04 from "../assets/bg_04.webp";
 
 export default function Home({ onLogoClick }) {
   const fgRef = useRef(null);
