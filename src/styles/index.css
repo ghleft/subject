@@ -8,9 +8,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; overflow-x: hidden; }
 html, body { overscroll-behavior: none; }
-html { overflow-y: scroll; }
-
-html, body, #root { height: 100%; }
+html, body { height: 100%; }
 
 a, button { color: inherit; }
 
