@@ -78,7 +78,7 @@
     margin-right: -20px;
   }
   .bodyText { padding: 100px 24px; }
-  .artImage { padding: 48px 0px; }
+  .artImage { padding: 64px 0px; }
 }
 @media (max-width: 600px) {
   .detailTop {

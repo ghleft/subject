@@ -25,7 +25,7 @@ function ReviewCard({ post }) {
       <div className="reviewCard__body">
         {markdown
           ? markdown.split("\n").map((line, i) => <p key={i}>{line}</p>)
-          : <p style={{ color: "rgba(0,0,0,0.4)", fontSize: "13px" }}>내용 준비 중</p>
+          : <p style={{ color: "rgba(0,0,0,0.4)", fontSize: "13px" }}></p>
         }
       </div>
     </div>
