@@ -19,8 +19,8 @@ const POSTS = [
 
   { id: "video-1", category: "video", title: "I can be your rockstar", author: "익명E", tag: ["둥헌"], youtubeId: "TflddqvsPoM" },
 
-  { id: "rev-1", category: "review", title: "익명A", author: "작성자1", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-1.md` },
-  { id: "rev-2", category: "review", title: "리뷰 제목 2", author: "작성자2", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-2.md` },
+  { id: "rev-1", category: "review", title: "사이", author: "작성자1", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-1.md` },
+  { id: "rev-2", category: "review", title: "익명A", author: "작성자2", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-2.md` },
   { id: "rev-3", category: "review", title: "리뷰 제목 3", author: "작성자3", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-3.md` },
   { id: "rev-4", category: "review", title: "리뷰 제목 4", author: "작성자4", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-4.md` },
   { id: "rev-5", category: "review", title: "리뷰 제목 5", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-5.md` },
