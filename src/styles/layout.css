@@ -26,7 +26,7 @@
 /* ── 푸터 ─────────────────────────────────────────── */
 .siteFooter {
   margin-top: 24px;
-  padding: 16px 0 24px;
+  padding: 16px 0 40px;
   text-align: center;
   font-size: 10px;
   color: var(--fg);
@@ -42,15 +42,15 @@
 }
 .footerLink:hover { opacity: 1; }
 
-@media (min-width: 601px) {
-  .page-container {
-    padding-top: 115px;
-  }
-}
-
 /* ── 반응형 ───────────────────────────────────────── */
 @media (max-width: 800px) {
-  .page-container { padding: 40px 20px; }
+  .page-container { padding: 50px 20px; }
+}
+
+@media (max-width: 601px) {
+  .page-container {
+    padding: 50px 20px;
+  }
 }
 
 /* ── 홈 전용 컨테이너 ─────────────────────────────── */

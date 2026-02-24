@@ -1,6 +1,6 @@
 /* ── 리스트 래퍼 ──────────────────────────────────── */
 .listWrap {
-  background: linear-gradient(to bottom, #39E841 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #39e842 0%, #ffffffb6 100%);
   position: relative;
   z-index: 10;
   width: var(--content-width);
@@ -97,9 +97,9 @@
   }
   .listWrap {
     margin-top: 0;
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
+    width: calc(100% + 8px);
+    margin-left: -4px;
+    margin-right: -4px;
   }
   .list {
     width: 100%;
@@ -285,7 +285,7 @@
 
 /* ── 리뷰 페이지 배경 ─────────────────────────────── */
 .listWrap--review {
-  background: linear-gradient(to bottom, #FB6C40 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, #FB6C40 0%, #ffffffb6 100%);
 }
 
 .bigCategoryLabel--review {
@@ -305,8 +305,8 @@
 .listWrapCorner--tr { top: -4px; right: -4px; }
 
 @media (max-width: 600px) {
-  .listWrapCorner--tl { top: -4px; left: 0; }
-  .listWrapCorner--tr { top: -4px; right: 0; }
+  .listWrapCorner--tl { top: -4px; left: -4px; }
+  .listWrapCorner--tr { top: -4px; right: -4px; }
 }
 
 /* ── 리스트 플로팅 화살표 ─────────────────────────── */
