@@ -42,6 +42,15 @@
   object-fit: contain;
 }
 
+/* 연속된 이미지 사이 간격 제거 */
+.artImage + .artImage {
+  padding-top: 0 !important;
+  border-bottom: none !important;
+}
+.artImage:last-of-type {
+  border-bottom: 1.5px solid #39E841 !important;
+}
+
 /* ── video ────────────────────────────────────────── */
 .videoWrap {
   padding: 0;
@@ -79,6 +88,7 @@
   }
   .bodyText { padding: 100px 24px; }
   .artImage { padding: 64px 0px; }
+  .artImage + .artImage { padding-top: 0 !important; }
 }
 @media (max-width: 600px) {
   .detailTop {
@@ -177,6 +187,7 @@
     padding-top: 4px;
   }
 }
+
 @media (min-width: 601px) {
   .detail-page .detail-wrap {
     margin-top: 44px;
@@ -185,5 +196,83 @@
   .detail-page .artImage,
   .detail-page .videoWrap {
     margin-top: 0;
+  }
+}
+
+/* ── 성인 인증 게이트 ─────────────────────────────── */
+.ageGate {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 60px 48px;
+  align-items: center;
+  text-align: center;
+}
+
+.ageGate p {
+  margin: 0;
+  color: #1735D4;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.ageGate__bookBtn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 1px 9px;
+  background: transparent;
+  color: #1735D4;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  border: 1px solid #1735D4;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.ageGate__inputRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.ageGate__input {
+  border: none;
+  border-bottom: 1.5px solid #1735D4;
+  padding: 6px 4px;
+  font-size: 16px;
+  font-family: inherit;
+  width: 150px;
+  outline: none;
+  background: transparent;
+  color: #1735D4;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+.ageGate__btn {
+  background: #1735D4;
+  color: #ffffff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  letter-spacing: -0.02em;
+}
+
+.ageGate__error {
+  color: #1735D4 !important;
+  font-weight: 700;
+  font-size: 13px !important;
+}
+
+@media (max-width: 600px) {
+  .ageGate {
+    padding: 60px 24px;
   }
 }

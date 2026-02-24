@@ -65,6 +65,10 @@
   border-left: 1px solid #ffffff;
 }
 
+.item-tag--2 {
+  background: #FB6C40;
+}
+
 .item-title {
   font-size: 22px;
   font-weight: 700;
@@ -364,7 +368,7 @@
 
 @media (min-width: 601px) {
   .listWrapOuter {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .listFloatButtons {
     right: 20px;
