@@ -390,7 +390,7 @@ This document has been issued by the Global Crisis Management Headquarters. Plea
 "형 게이라던데 진짜예요?"<p></p>
 "맞아. 난 씹게이야. 그러니까 말 걸지 말아줄래. 너도 박아버리는 수가 있단다."<p></p>
 좀 전에 쟤 아빠한테 죽고 방금 막 복사된 참이라 도저히 말이 곱게 나가지가 않았다.<p></p>
-"전 좋아요."
+"전 좋아요."<p></p>
 "뭐?"<p></p>
 "사실 저도 게이거든요... 그리고 형은 제 취향이고...“<p></p>
 "..."<p></p>
