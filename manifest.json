@@ -1,16 +1,11 @@
 {
-  "short_name": "被寫體",
-  "name": "被寫體",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
-      "src": "myfavicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "logo160.png",
-      "type": "image/png",
-      "sizes": "160x160"
     }
   ],
   "start_url": ".",
