@@ -26,12 +26,39 @@
   justify-content: space-between;
   align-items: baseline;
   position: relative;
-  border: 1.5px solid #1735D4;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
   cursor: pointer;
-  background: #ffffff60;
-  border-radius: 0px 20px;
-  padding: 25px 12px 22px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
   margin: 6px 16px;
+  padding: 25px 12px 22px;
+}
+
+/* 테두리: clip-path 모양을 따르는 border 레이어 */
+.list-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px),
+    0 0,
+    1.5px 0, 1.5px calc(100% - 21px), 21px calc(100% - 1.5px), calc(100% - 1.5px) calc(100% - 1.5px), calc(100% - 1.5px) 21px, calc(100% - 21px) 1.5px, 1.5px 1.5px
+  );
+  background: #1735D4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 배경: 반투명 흰색 */
+.list-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  background: #ffffff60;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* ── 왼쪽: 태그 + 제목 ────────────────────────────── */
@@ -39,6 +66,8 @@
   display: flex;
   flex-direction: column;
   gap: 3px;
+  position: relative;
+  z-index: 2;
 }
 
 .item-tag {
@@ -59,6 +88,7 @@
   display: flex;
   flex-direction: row;
   gap: 0;
+  z-index: 2;
 }
 
 .item-tag + .item-tag {
@@ -74,6 +104,8 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   color: #1735D4;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── 오른쪽: 작가 ─────────────────────────────────── */
@@ -83,6 +115,8 @@
   flex-shrink: 0;
   margin-left: 20px;
   letter-spacing: 0.02em;
+  position: relative;
+  z-index: 2;
 }
 
 /* ── 반응형 ───────────────────────────────────────── */
@@ -240,12 +274,39 @@
   padding: 16px 0;
 }
 
+/* ── 리뷰 카드 ────────────────────────────────────── */
 .reviewCard {
-  background-color: #ffffff4b;
-  border: 1.5px solid #1735D4;
-  border-radius: 0px 20px;
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  background: transparent;
+  border: none;
+  border-radius: 0;
   padding: 20px 24px;
   margin: 0 16px;
+}
+
+.reviewCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(
+    0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px),
+    0 0,
+    1.5px 0, 1.5px calc(100% - 21px), 21px calc(100% - 1.5px), calc(100% - 1.5px) calc(100% - 1.5px), calc(100% - 1.5px) 21px, calc(100% - 21px) 1.5px, 1.5px 1.5px
+  );
+  background: #1735D4;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.reviewCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+  background: #ffffff4b;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .reviewCard__header {
@@ -253,6 +314,8 @@
   align-items: baseline;
   gap: 12px;
   margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
 }
 
 .reviewCard__title {
@@ -266,6 +329,8 @@
   font-size: 14px;
   line-height: 1.7;
   color: #1735D4;
+  position: relative;
+  z-index: 2;
 }
 
 .reviewCard__body p {
@@ -391,5 +456,4 @@
     right: 0;
     top: -44px;
   }
-
 }

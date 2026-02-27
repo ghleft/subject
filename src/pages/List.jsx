@@ -75,7 +75,6 @@ export default function List({ category, onHome, onNavigate, onBackMenu, onOpenD
         <Header onHome={onHome} mode="list" category={category} />
       </div>
       <div style={{ opacity: listVisible ? 1 : 0, transition: "opacity 1.0s" }}>
-        {/* bigCategoryLabel */}
         <div className="detail-wrap">
           <div className="listWrap" style={{ background: "transparent", borderTop: "none", borderBottom: "none" }}>
             <BigCategoryLabel category={category} />
@@ -83,7 +82,6 @@ export default function List({ category, onHome, onNavigate, onBackMenu, onOpenD
           </div>
         </div>
 
-        {/* 리스트 + 화살표 */}
         <div className="listWrapOuter">
           <div className="listFloatButtons">
             <button className={`listFloatBtn listFloatBtn--prev${isReview ? " review" : ""}`} onClick={() => onNavigate(prevCat)}></button>
