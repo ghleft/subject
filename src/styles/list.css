@@ -100,12 +100,16 @@
 }
 
 .item-title {
-  font-size: 22px;
+  padding: 3px;
+  font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.03em;
   color: #1735D4;
   position: relative;
   z-index: 2;
+  margin-left: 6px;
+  margin-top: -1px;
+  
 }
 
 /* ── 오른쪽: 작가 ─────────────────────────────────── */
@@ -114,14 +118,24 @@
   color: #1735D4;
   flex-shrink: 0;
   margin-left: 20px;
+  margin-right: 8px;
   letter-spacing: 0.02em;
   position: relative;
   z-index: 2;
 }
 
 /* ── 반응형 ───────────────────────────────────────── */
-@media (max-width: 800px) {
-  .item-title { font-size: 18px; }
+@media (max-width: 600px) {
+  .item-title {
+    padding: 0px;
+    font-size: 18px; 
+    margin-left: 2px;
+    margin-top: -4px;
+    margin-bottom: 3px;
+  }
+  .item-author {
+    margin-right: 0px;
+  }
 }
 
 @media (max-width: 600px) {
