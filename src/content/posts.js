@@ -22,12 +22,14 @@ const POSTS = [
   
   { id: "video-1", category: "video", title: "I can be your rockstar", author: "익명E", tag: ["둥헌"], youtubeId: "TflddqvsPoM" },
 
+  { id: "rev-4", category: "review", title: "비누", author: "작성자4", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-4.md` },
   { id: "rev-1", category: "review", title: "사이",       author: "작성자1", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-1.md` },
+  { id: "rev-5", category: "review", title: "새콤", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-7.md` },
   { id: "rev-2", category: "review", title: "익명A",      author: "작성자2", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-2.md` },
   { id: "rev-3", category: "review", title: "익명B", author: "작성자3", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-3.md` },
-  { id: "rev-4", category: "review", title: "비누", author: "작성자4", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-4.md` },
-  { id: "rev-5", category: "review", title: "짱", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-5.md` },
+  { id: "rev-5", category: "review", title: "익명C", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-8.md` },
   { id: "rev-5", category: "review", title: "익명E", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-6.md` },
+  { id: "rev-5", category: "review", title: "짱", author: "작성자5", bodyUrl: `${process.env.PUBLIC_URL}/content/rev/rev-5.md` },  
 ];
 
 export function getPostsByCategory(category) {
