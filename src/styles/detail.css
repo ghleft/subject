@@ -38,14 +38,17 @@
 /* ── art 이미지 ───────────────────────────────────── */
 .artImage {
   display: block;
-  padding: 48px;
+  padding: 64px 48px;
   object-fit: contain;
 }
 
 /* 연속된 이미지 사이 간격 제거 */
 .artImage + .artImage {
   padding-top: 0 !important;
+}
+.artImage:not(:last-of-type) {
   border-bottom: none !important;
+  padding-bottom: 0 !important;
 }
 .artImage:last-of-type {
   border-bottom: 1.5px solid #39E841 !important;
@@ -87,7 +90,7 @@
     margin-right: -20px;
   }
   .bodyText { padding: 100px 24px; }
-  .artImage { padding: 64px 0px; }
+  .artImage { padding: 100px 0px; }
   .artImage + .artImage { padding-top: 0 !important; }
 }
 @media (max-width: 600px) {
